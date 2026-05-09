@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Floating Product Semi-Circle</title>
+    <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+</head>
+<body>
+
+    <div class="main-canvas">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">ONE-T<span>.</span></div>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Products</a></li>
+                    <li><a href="#">Collection</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <button class="btn-primary">Shop Now</button>
+                </div>
+            </div>
+        </nav>
+
+        <img src="landing.png" alt="Background" class="hero-bg">
+
+        <div class="orbit-pivot" id="orbitPivot">
+            <div class="orbit-wheel">
+                <div class="product-item" style="--i: 0;">
+                    <div class="item-inner" id="item0">
+                        <div class="product-visual">
+                            <img src="JAR1.png" alt="Black Shaker" class="floating-img">
+                        </div>
+                        <div class="product-data">
+                            <span class="category-chip">Premium</span>
+                            <h3>01. Performance Shaker</h3>
+                            <p>Double-wall matte finish.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-item" style="--i: 1;">
+                    <div class="item-inner" id="item1">
+                        <div class="product-visual">
+                            <img src="BOX1.png" alt="Clear Bottle" class="floating-img">
+                        </div>
+                        <div class="product-data">
+                            <span class="category-chip">Hydration</span>
+                            <h3>02. Pro Gym Bottle</h3>
+                            <p>Leak-proof tech.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-item" style="--i: 2;">
+                    <div class="item-inner" id="item2">
+                        <div class="product-visual">
+                            <img src="BOTTLE1.png" alt="Limited Edition Gear" class="floating-img">
+                        </div>
+                        <div class="product-data">
+                            <span class="category-chip">Edition</span>
+                            <h3>03. Precision Combo</h3>
+                            <p>Limited colorway.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div style="height: 800vh;"></div>
+
+    <!-- SECTION 02: ENGINEERING TECHNICAL REVEAL -->
+    <section class="one-t-engineering">
+        <div class="sticky-container">
+
+            <!-- BACKGROUND LAYER -->
+            <div class="bg-layer">
+                <div class="blueprint-grid"></div>
+                <h1 id="scrollText">ULTRA_REFINED</h1>
+                <!-- Ambient light orbs -->
+                <div class="ambient-orb orb-1"></div>
+                <div class="ambient-orb orb-2"></div>
+                <div class="ambient-orb orb-3"></div>
+            </div>
+
+            <!-- MODEL LAYER -->
+            <div class="model-layer">
+                <model-viewer 
+                    id="oneTModel"
+                    src="bottle.glb" 
+                    alt="One-T Advanced Engineering"
+                    loading="eager"
+                    disable-zoom
+                    auto-rotate-speed="0"
+                    shadow-intensity="1"
+                    camera-orbit="0deg 75deg 105%"
+                    style="width: 100%; height: 100vh;">
+                </model-viewer>
+            </div>
+
+            <!-- LEFT ENGINEERING SPECS PANEL -->
+            <div class="eng-left-panel">
+                <div class="vertical-label">SPECIFICATIONS</div>
+                <div class="spec-list">
+                    <div class="spec-row" data-delay="0">
+                        <div class="spec-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+                        </div>
+                        <div class="spec-info">
+                            <span class="spec-label">THERMAL RETENTION</span>
+                            <div class="spec-bar-wrap"><div class="spec-bar" style="--w:92%"></div></div>
+                            <span class="spec-value">24 HRS COLD · 12 HRS HOT</span>
+                        </div>
+                    </div>
+                    <div class="spec-row" data-delay="100">
+                        <div class="spec-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                        </div>
+                        <div class="spec-info">
+                            <span class="spec-label">MATERIAL GRADE</span>
+                            <div class="spec-bar-wrap"><div class="spec-bar" style="--w:100%"></div></div>
+                            <span class="spec-value">304 SURGICAL STAINLESS</span>
+                        </div>
+                    </div>
+                    <div class="spec-row" data-delay="200">
+                        <div class="spec-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <div class="spec-info">
+                            <span class="spec-label">LEAK PROOF RATING</span>
+                            <div class="spec-bar-wrap"><div class="spec-bar" style="--w:100%"></div></div>
+                            <span class="spec-value">IP67 WATERPROOF SEAL</span>
+                        </div>
+                    </div>
+                    <div class="spec-row" data-delay="300">
+                        <div class="spec-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                        </div>
+                        <div class="spec-info">
+                            <span class="spec-label">DURABILITY INDEX</span>
+                            <div class="spec-bar-wrap"><div class="spec-bar" style="--w:88%"></div></div>
+                            <span class="spec-value">DROP-TESTED 1.5M HEIGHT</span>
+                        </div>
+                    </div>
+                    <div class="spec-row" data-delay="400">
+                        <div class="spec-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+                        </div>
+                        <div class="spec-info">
+                            <span class="spec-label">SURFACE FINISH</span>
+                            <div class="spec-bar-wrap"><div class="spec-bar" style="--w:96%"></div></div>
+                            <span class="spec-value">ELECTRO-FUSED MATTE</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RIGHT STATISTICS PANEL -->
+            <div class="eng-right-panel">
+                <div class="stat-card" data-delay="0">
+                    <div class="stat-number"><span class="count" data-target="304">0</span></div>
+                    <div class="stat-unit">GRADE</div>
+                    <div class="stat-desc">Medical Steel</div>
+                    <div class="stat-pulse"></div>
+                </div>
+                <div class="stat-card" data-delay="150">
+                    <div class="stat-number"><span class="count" data-target="24">0</span><sup>h</sup></div>
+                    <div class="stat-unit">COLD</div>
+                    <div class="stat-desc">Temperature Hold</div>
+                    <div class="stat-pulse"></div>
+                </div>
+                <div class="stat-card" data-delay="300">
+                    <div class="stat-number"><span class="count" data-target="2">0</span><span class="stat-decimal">.5mm</span></div>
+                    <div class="stat-unit">VACUUM</div>
+                    <div class="stat-desc">Airless Wall Gap</div>
+                    <div class="stat-pulse"></div>
+                </div>
+                <div class="stat-card eco-card" data-delay="450">
+                    <div class="eco-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 22a10 10 0 0 1 18-6M2 16a10 10 0 0 1 18-2M12 2C6.48 2 2 6.48 2 12"/><circle cx="19" cy="19" r="3"/></svg>
+                    </div>
+                    <div class="eco-label">ECO CERTIFIED</div>
+                    <div class="eco-sub">100% Recyclable · Zero BPA · Carbon Neutral Production</div>
+                    <div class="eco-badges">
+                        <span>♺ RECYCLABLE</span>
+                        <span>✓ BPA FREE</span>
+                        <span>◉ NET ZERO</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ANNOTATION LINES (SVG overlay pointing to bottle) -->
+            <div class="annotation-layer">
+                <svg class="annotation-svg" viewBox="0 0 1440 900" preserveAspectRatio="none">
+                    <line class="ann-line" x1="480" y1="200" x2="660" y2="300" stroke="rgba(0,113,227,0.25)" stroke-width="1" stroke-dasharray="4,4"/>
+                    <line class="ann-line" x1="480" y1="450" x2="660" y2="440" stroke="rgba(0,113,227,0.25)" stroke-width="1" stroke-dasharray="4,4"/>
+                    <line class="ann-line" x1="480" y1="680" x2="660" y2="600" stroke="rgba(0,113,227,0.25)" stroke-width="1" stroke-dasharray="4,4"/>
+                    <line class="ann-line" x1="960" y1="220" x2="790" y2="310" stroke="rgba(0,113,227,0.25)" stroke-width="1" stroke-dasharray="4,4"/>
+                    <line class="ann-line" x1="960" y1="460" x2="790" y2="450" stroke="rgba(0,113,227,0.25)" stroke-width="1" stroke-dasharray="4,4"/>
+                    <circle cx="660" cy="300" r="3" fill="rgba(0,113,227,0.5)"/>
+                    <circle cx="660" cy="440" r="3" fill="rgba(0,113,227,0.5)"/>
+                    <circle cx="660" cy="600" r="3" fill="rgba(0,113,227,0.5)"/>
+                    <circle cx="790" cy="310" r="3" fill="rgba(0,113,227,0.5)"/>
+                    <circle cx="790" cy="450" r="3" fill="rgba(0,113,227,0.5)"/>
+                </svg>
+            </div>
+
+            <!-- TOP MICRO UI BAR -->
+            <div class="eng-top-bar">
+                <div class="top-bar-item"><span class="dot green"></span>SYSTEM ONLINE</div>
+                <div class="top-bar-item">MODEL // ONE-T PRO MAX</div>
+                <div class="top-bar-item">REF // OT-2024-SS304</div>
+                <div class="top-bar-divider"></div>
+                <div class="top-bar-item live"><span class="dot pulse-dot"></span>LIVE RENDER</div>
+            </div>
+
+            <!-- BOTTOM PRECISION STRIP -->
+            <div class="eng-bottom-strip">
+                <div class="strip-item">
+                    <span class="strip-key">CAPACITY</span>
+                    <span class="strip-val">750ML</span>
+                </div>
+                <div class="strip-divider"></div>
+                <div class="strip-item">
+                    <span class="strip-key">WEIGHT</span>
+                    <span class="strip-val">280G</span>
+                </div>
+                <div class="strip-divider"></div>
+                <div class="strip-item">
+                    <span class="strip-key">HEIGHT</span>
+                    <span class="strip-val">27CM</span>
+                </div>
+                <div class="strip-divider"></div>
+                <div class="strip-item">
+                    <span class="strip-key">DIAMETER</span>
+                    <span class="strip-val">7.5CM</span>
+                </div>
+                <div class="strip-divider"></div>
+                <div class="strip-item">
+                    <span class="strip-key">WALL</span>
+                    <span class="strip-val">2.5MM</span>
+                </div>
+            </div>
+
+            <!-- EDITORIAL INFO CARDS (existing, preserved) -->
+            <div class="content-layer">
+                <div class="info-card" id="card1">
+                    <div class="meta"><span>01</span> // MATERIAL</div>
+                    <h2>The 304 Forged Core</h2>
+                    <p>Constructed from surgical-grade stainless steel for total purity.</p>
+                </div>
+                <div class="info-card" id="card2">
+                    <div class="meta"><span>02</span> // THERMAL</div>
+                    <h2>Vacuum Shield</h2>
+                    <p>A 2.5mm airless void maintains temperature for 24 hours.</p>
+                </div>
+                <div class="info-card" id="card3">
+                    <div class="meta"><span>03</span> // ARMOR</div>
+                    <h2>Electro-Fusion</h2>
+                    <p>Matte finish fused at the molecular level for scratch resistance.</p>
+                </div>
+            </div>
+
+        </div>
+        <div class="scroll-track"></div>
+    </section>
+
+    <!-- SECTION 03: LIFESTYLE GALLERY -->
+    <section class="onet-lifestyle">
+        <div class="mesh-gradient-bg"></div>
+
+        <!-- FLOATING DECORATIVE BLOBS -->
+        <div class="lifestyle-blob blob-a"></div>
+        <div class="lifestyle-blob blob-b"></div>
+
+        <div class="lifestyle-container">
+
+            <!-- HEADER -->
+            <div class="gallery-header">
+                <span class="tagline">DESIGNED FOR MOTION</span>
+                <h1 class="display-title">Beyond<span>.</span> Purity</h1>
+            </div>
+
+            <!-- MAIN SHOWCASE ROW: Editorial Left + Model + Cards Right -->
+            <div class="lifestyle-main-row">
+
+                <!-- LEFT EDITORIAL BLOCK -->
+                <div class="editorial-left">
+                    <div class="editorial-vert-text">ONE-T × 2024</div>
+                    <div class="editorial-tag">↳ CRAFTED SERIES</div>
+                    <h2 class="editorial-heading">Fluid<br>by<br>Design.</h2>
+                    <p class="editorial-body">Every curve calculated. Every gram considered. The bottle that moves with your body, not against it. Inspired by the laws of fluid dynamics.</p>
+                    <div class="editorial-divider"></div>
+                    <div class="editorial-meta-row">
+                        <div class="editorial-meta-item">
+                            <span class="em-num">03</span>
+                            <span class="em-label">Colorways</span>
+                        </div>
+                        <div class="editorial-meta-item">
+                            <span class="em-num">∞</span>
+                            <span class="em-label">Refills</span>
+                        </div>
+                        <div class="editorial-meta-item">
+                            <span class="em-num">01</span>
+                            <span class="em-label">Planet</span>
+                        </div>
+                    </div>
+
+                    <!-- Stacked mini chips -->
+                    <div class="lifestyle-chip-stack">
+                        <div class="ls-chip">
+                            <span class="chip-dot"></span>
+                            Sunrise Peach
+                        </div>
+                        <div class="ls-chip active-chip">
+                            <span class="chip-dot"></span>
+                            Matte Obsidian
+                        </div>
+                        <div class="ls-chip">
+                            <span class="chip-dot"></span>
+                            Arctic Frost
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CENTER: 3D SPOTLIGHT -->
+                <div class="lifestyle-showcase">
+                    <div class="podium-glow"></div>
+                    <model-viewer 
+                        id="lifestyleModel"
+                        src="bottle.glb" 
+                        alt="One-T Lifestyle"
+                        environment-image="neutral"
+                        exposure="1.2"
+                        interaction-prompt="none"
+                        auto-rotate
+                        camera-controls
+                        disable-zoom
+                        style="width: 100%; height: 70vh;">
+                    </model-viewer>
+                    <!-- Floating orbit ring decoration -->
+                    <div class="model-ring"></div>
+                    <div class="model-ring ring-2"></div>
+                </div>
+
+                <!-- RIGHT STACKED GLASS CARDS -->
+                <div class="lifestyle-cards-right">
+                    <div class="ls-glass-card lg-card float-card-1">
+                        <div class="lg-card-tag">ERGONOMICS</div>
+                        <h3 class="lg-card-heading">Form Meets Function</h3>
+                        <p class="lg-card-body">Curvatures inspired by organic forms for a natural grip, even during high-intensity movement.</p>
+                        <div class="lg-card-visual">
+                            <div class="grip-diagram">
+                                <div class="grip-ring"></div>
+                                <div class="grip-ring gr-2"></div>
+                                <div class="grip-ring gr-3"></div>
+                                <div class="grip-dot"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ls-glass-card sm-card float-card-2">
+                        <div class="lg-card-tag">COLORWAYS</div>
+                        <div class="color-swatch-row">
+                            <div class="cswatch" style="background:#1a1a1a"></div>
+                            <div class="cswatch" style="background:#F9B49E"></div>
+                            <div class="cswatch" style="background:#D6EAF8"></div>
+                        </div>
+                        <p class="lg-card-body sm-body">Premium finishes in three exclusive colorways.</p>
+                    </div>
+
+                    <div class="ls-glass-card sm-card float-card-3">
+                        <div class="rotating-badge">
+                            <svg class="rotate-svg" viewBox="0 0 100 100">
+                                <defs><path id="circle-path" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"/></defs>
+                                <text font-size="11.5" fill="#333" font-family="monospace" letter-spacing="2">
+                                    <textPath href="#circle-path">ONE-T · PREMIUM · CRAFTED · 2024 · </textPath>
+                                </text>
+                            </svg>
+                            <div class="badge-center">✦</div>
+                        </div>
+                    </div>
+
+                    <div class="ls-glass-card review-card float-card-4">
+                        <div class="review-stars">★★★★★</div>
+                        <p class="review-text">"The last bottle you'll ever need. Flawless engineering, exceptional feel."</p>
+                        <div class="review-author">— M. Torres, Elite Athlete</div>
+                    </div>
+                </div>
+
+            </div><!-- end .lifestyle-main-row -->
+
+            <!-- FLOATING GLASS CARDS (existing, preserved) -->
+            <div class="feature-grid">
+                <div class="glass-card">
+                    <h3>Ergonomic Flow</h3>
+                    <p>Curvatures inspired by organic forms for a natural grip.</p>
+                </div>
+                <div class="glass-card">
+                    <h3>Vibrant Core</h3>
+                    <p>Premium finishes available in sunset and clay tones.</p>
+                </div>
+            </div>
+
+            <!-- BOTTOM FEATURE STRIP -->
+            <div class="ls-bottom-strip">
+                <div class="ls-strip-block">
+                    <div class="ls-strip-icon">⬡</div>
+                    <div class="ls-strip-text">
+                        <strong>Zero Compromise</strong>
+                        <span>Built for champions</span>
+                    </div>
+                </div>
+                <div class="ls-strip-sep"></div>
+                <div class="ls-strip-block">
+                    <div class="ls-strip-icon">◎</div>
+                    <div class="ls-strip-text">
+                        <strong>Lifetime Guarantee</strong>
+                        <span>We stand behind every drop</span>
+                    </div>
+                </div>
+                <div class="ls-strip-sep"></div>
+                <div class="ls-strip-block">
+                    <div class="ls-strip-icon">✦</div>
+                    <div class="ls-strip-text">
+                        <strong>Award Winning</strong>
+                        <span>Red Dot Design 2024</span>
+                    </div>
+                </div>
+                <div class="ls-strip-sep"></div>
+                <div class="ls-strip-block">
+                    <div class="ls-strip-icon">♺</div>
+                    <div class="ls-strip-text">
+                        <strong>Sustainable</strong>
+                        <span>Carbon neutral certified</span>
+                    </div>
+                </div>
+                <div class="ls-strip-cta">
+                    <button class="strip-cta-btn">Explore All →</button>
+                </div>
+            </div>
+
+            <!-- FLOATING METADATA CHIPS -->
+            <div class="floating-chips">
+                <div class="f-chip chip-float-1">Premium Steel ↗</div>
+                <div class="f-chip chip-float-2">750ML Capacity</div>
+                <div class="f-chip chip-float-3">24h Cold ✓</div>
+                <div class="f-chip chip-float-4">Drop Proof</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+<footer class="onet-footer">
+    <div class="footer-noise"></div>
+    <div class="footer-glow-left"></div>
+    <div class="footer-glow-right"></div>
+
+    <!-- TOP MARQUEE STRIP -->
+    <div class="footer-marquee-wrap">
+        <div class="footer-marquee-track">
+            <span>ONE-T</span><span class="sep">✦</span>
+            <span>PRECISION ENGINEERED</span><span class="sep">✦</span>
+            <span>304 STEEL</span><span class="sep">✦</span>
+            <span>BEYOND PURITY</span><span class="sep">✦</span>
+            <span>THERMAL LOCK</span><span class="sep">✦</span>
+            <span>ONE-T</span><span class="sep">✦</span>
+            <span>PRECISION ENGINEERED</span><span class="sep">✦</span>
+            <span>304 STEEL</span><span class="sep">✦</span>
+            <span>BEYOND PURITY</span><span class="sep">✦</span>
+            <span>THERMAL LOCK</span><span class="sep">✦</span>
+        </div>
+    </div>
+
+    <div class="footer-inner">
+
+        <!-- BIG DISPLAY LOGO -->
+        <div class="footer-logo-block">
+            <h2 class="footer-display-logo">ONE-T<span>.</span></h2>
+            <p class="footer-tagline">Engineered for the relentless.</p>
+            <button class="footer-cta-btn">Shop the Collection →</button>
+        </div>
+
+        <!-- LINKS GRID -->
+        <div class="footer-links-grid">
+            <div class="footer-col">
+                <span class="footer-col-label">Product</span>
+                <a href="#">Performance Shaker</a>
+                <a href="#">Pro Gym Bottle</a>
+                <a href="#">Precision Combo</a>
+                <a href="#">Limited Edition</a>
+            </div>
+            <div class="footer-col">
+                <span class="footer-col-label">Company</span>
+                <a href="#">About ONE-T</a>
+                <a href="#">Engineering</a>
+                <a href="#">Sustainability</a>
+                <a href="#">Careers</a>
+            </div>
+            <div class="footer-col">
+                <span class="footer-col-label">Support</span>
+                <a href="#">Contact Us</a>
+                <a href="#">Returns</a>
+                <a href="#">Warranty</a>
+                <a href="#">FAQ</a>
+            </div>
+        </div>
+
+        <!-- RIGHT NEWSLETTER + SOCIALS -->
+        <div class="footer-right-block">
+            <span class="footer-col-label">Stay in the loop</span>
+            <p class="footer-nl-desc">New drops. Engineering stories. Zero spam.</p>
+            <div class="footer-input-row">
+                <input type="email" placeholder="your@email.com" class="footer-input">
+                <button class="footer-input-btn">→</button>
+            </div>
+            <div class="footer-socials">
+                <a href="#" class="social-pill">Instagram</a>
+                <a href="#" class="social-pill">TikTok</a>
+                <a href="#" class="social-pill">X</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div class="footer-bottom-bar">
+        <span class="footer-copy">© 2024 ONE-T. All rights reserved.</span>
+        <div class="footer-bottom-links">
+            <a href="#">Privacy</a>
+            <a href="#">Terms</a>
+            <a href="#">Cookies</a>
+        </div>
+        <span class="footer-made">Crafted with precision ✦</span>
+    </div>
+</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
