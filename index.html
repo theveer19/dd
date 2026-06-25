@@ -1,543 +1,342 @@
+/* index.html */
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Floating Product Semi-Circle</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Dimazofly — Beyond Purity</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700&family=Plus+Jakarta+Sans:wght@600;700;800;900&family=Playfair+Display:wght@900&family=Syne:wght@700;800;900&family=Cormorant+Garamond:ital,wght@0,600;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/SplitText.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="premium.css">
 </head>
 <body>
 
-    <div class="main-canvas">
-        <nav class="navbar">
-            <div class="nav-container">
-                <div class="nav-logo">ONE-T<span>.</span></div>
-                <ul class="nav-links">
-                    <li><a href="#" class="active">Home</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">Collection</a></li>
-                    <li><a href="#">About</a></li>
-                </ul>
-                <div class="nav-actions">
-                    <button class="btn-primary">Shop Now</button>
-                </div>
+<div class="grain-overlay" aria-hidden="true"></div>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<canvas class="particle-canvas" id="particleCanvas" aria-hidden="true"></canvas>
+
+<!-- ============================================================
+     HERO — FIXED CANVAS
+============================================================ -->
+<div class="main-canvas">
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="logo.png" alt="Dimazofly Logo" class="logo-img">
             </div>
-        </nav>
-
-        <img src="landing.png" alt="Background" class="hero-bg">
-
-        <div class="orbit-pivot" id="orbitPivot">
-            <div class="orbit-wheel">
-                <div class="product-item" style="--i: 0;">
-                    <div class="item-inner" id="item0">
-                        <div class="product-visual">
-                            <img src="JAR1.png" alt="Black Shaker" class="floating-img">
-                        </div>
-                        <div class="product-data">
-                            <span class="category-chip">Premium</span>
-                            <h3>01. Performance Shaker</h3>
-                            <p>Double-wall matte finish.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-item" style="--i: 1;">
-                    <div class="item-inner" id="item1">
-                        <div class="product-visual">
-                            <img src="BOX1.png" alt="Clear Bottle" class="floating-img">
-                        </div>
-                        <div class="product-data">
-                            <span class="category-chip">Hydration</span>
-                            <h3>02. Pro Gym Bottle</h3>
-                            <p>Leak-proof tech.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="product-item" style="--i: 2;">
-                    <div class="item-inner" id="item2">
-                        <div class="product-visual">
-                            <img src="BOTTLE1.png" alt="Limited Edition Gear" class="floating-img">
-                        </div>
-                        <div class="product-data">
-                            <span class="category-chip">Edition</span>
-                            <h3>03. Precision Combo</h3>
-                            <p>Limited colorway.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div style="height: 800vh;"></div>
-
-    <!-- SECTION 02: ENGINEERING TECHNICAL REVEAL -->
-    <section class="one-t-engineering">
-        <div class="sticky-container">
-
-            <!-- BACKGROUND LAYER -->
-            <div class="bg-layer">
-                <div class="blueprint-grid"></div>
-                <h1 id="scrollText">ULTRA_REFINED</h1>
-                <!-- Ambient light orbs -->
-                <div class="ambient-orb orb-1"></div>
-                <div class="ambient-orb orb-2"></div>
-                <div class="ambient-orb orb-3"></div>
-            </div>
-
-            <!-- MODEL LAYER -->
-            <div class="model-layer">
-                <model-viewer 
-                    id="oneTModel"
-                    src="bottle.glb" 
-                    alt="One-T Advanced Engineering"
-                    loading="eager"
-                    disable-zoom
-                    auto-rotate-speed="0"
-                    shadow-intensity="1"
-                    camera-orbit="0deg 75deg 105%"
-                    style="width: 100%; height: 100vh;">
-                </model-viewer>
-            </div>
-
-            <!-- LEFT ENGINEERING SPECS PANEL -->
-            <div class="eng-left-panel">
-                <div class="vertical-label">SPECIFICATIONS</div>
-                <div class="spec-list">
-                    <div class="spec-row" data-delay="0">
-                        <div class="spec-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-                        </div>
-                        <div class="spec-info">
-                            <span class="spec-label">THERMAL RETENTION</span>
-                            <div class="spec-bar-wrap"><div class="spec-bar" style="--w:92%"></div></div>
-                            <span class="spec-value">24 HRS COLD · 12 HRS HOT</span>
-                        </div>
-                    </div>
-                    <div class="spec-row" data-delay="100">
-                        <div class="spec-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-                        </div>
-                        <div class="spec-info">
-                            <span class="spec-label">MATERIAL GRADE</span>
-                            <div class="spec-bar-wrap"><div class="spec-bar" style="--w:100%"></div></div>
-                            <span class="spec-value">304 SURGICAL STAINLESS</span>
-                        </div>
-                    </div>
-                    <div class="spec-row" data-delay="200">
-                        <div class="spec-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-                        </div>
-                        <div class="spec-info">
-                            <span class="spec-label">LEAK PROOF RATING</span>
-                            <div class="spec-bar-wrap"><div class="spec-bar" style="--w:100%"></div></div>
-                            <span class="spec-value">IP67 WATERPROOF SEAL</span>
-                        </div>
-                    </div>
-                    <div class="spec-row" data-delay="300">
-                        <div class="spec-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
-                        </div>
-                        <div class="spec-info">
-                            <span class="spec-label">DURABILITY INDEX</span>
-                            <div class="spec-bar-wrap"><div class="spec-bar" style="--w:88%"></div></div>
-                            <span class="spec-value">DROP-TESTED 1.5M HEIGHT</span>
-                        </div>
-                    </div>
-                    <div class="spec-row" data-delay="400">
-                        <div class="spec-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
-                        </div>
-                        <div class="spec-info">
-                            <span class="spec-label">SURFACE FINISH</span>
-                            <div class="spec-bar-wrap"><div class="spec-bar" style="--w:96%"></div></div>
-                            <span class="spec-value">ELECTRO-FUSED MATTE</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- RIGHT STATISTICS PANEL -->
-            <div class="eng-right-panel">
-                <div class="stat-card" data-delay="0">
-                    <div class="stat-number"><span class="count" data-target="304">0</span></div>
-                    <div class="stat-unit">GRADE</div>
-                    <div class="stat-desc">Medical Steel</div>
-                    <div class="stat-pulse"></div>
-                </div>
-                <div class="stat-card" data-delay="150">
-                    <div class="stat-number"><span class="count" data-target="24">0</span><sup>h</sup></div>
-                    <div class="stat-unit">COLD</div>
-                    <div class="stat-desc">Temperature Hold</div>
-                    <div class="stat-pulse"></div>
-                </div>
-                <div class="stat-card" data-delay="300">
-                    <div class="stat-number"><span class="count" data-target="2">0</span><span class="stat-decimal">.5mm</span></div>
-                    <div class="stat-unit">VACUUM</div>
-                    <div class="stat-desc">Airless Wall Gap</div>
-                    <div class="stat-pulse"></div>
-                </div>
-                <div class="stat-card eco-card" data-delay="450">
-                    <div class="eco-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 22a10 10 0 0 1 18-6M2 16a10 10 0 0 1 18-2M12 2C6.48 2 2 6.48 2 12"/><circle cx="19" cy="19" r="3"/></svg>
-                    </div>
-                    <div class="eco-label">ECO CERTIFIED</div>
-                    <div class="eco-sub">100% Recyclable · Zero BPA · Carbon Neutral Production</div>
-                    <div class="eco-badges">
-                        <span>♺ RECYCLABLE</span>
-                        <span>✓ BPA FREE</span>
-                        <span>◉ NET ZERO</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- ANNOTATION LINES (SVG overlay pointing to bottle) -->
-            <div class="annotation-layer">
-                <svg class="annotation-svg" viewBox="0 0 1440 900" preserveAspectRatio="none">
-                    <line class="ann-line" x1="480" y1="200" x2="660" y2="300" stroke="rgba(0,113,227,0.25)" stroke-width="1" stroke-dasharray="4,4"/>
-                    <line class="ann-line" x1="480" y1="450" x2="660" y2="440" stroke="rgba(0,113,227,0.25)" stroke-width="1" stroke-dasharray="4,4"/>
-                    <line class="ann-line" x1="480" y1="680" x2="660" y2="600" stroke="rgba(0,113,227,0.25)" stroke-width="1" stroke-dasharray="4,4"/>
-                    <line class="ann-line" x1="960" y1="220" x2="790" y2="310" stroke="rgba(0,113,227,0.25)" stroke-width="1" stroke-dasharray="4,4"/>
-                    <line class="ann-line" x1="960" y1="460" x2="790" y2="450" stroke="rgba(0,113,227,0.25)" stroke-width="1" stroke-dasharray="4,4"/>
-                    <circle cx="660" cy="300" r="3" fill="rgba(0,113,227,0.5)"/>
-                    <circle cx="660" cy="440" r="3" fill="rgba(0,113,227,0.5)"/>
-                    <circle cx="660" cy="600" r="3" fill="rgba(0,113,227,0.5)"/>
-                    <circle cx="790" cy="310" r="3" fill="rgba(0,113,227,0.5)"/>
-                    <circle cx="790" cy="450" r="3" fill="rgba(0,113,227,0.5)"/>
-                </svg>
-            </div>
-
-            <!-- TOP MICRO UI BAR -->
-            <div class="eng-top-bar">
-                <div class="top-bar-item"><span class="dot green"></span>SYSTEM ONLINE</div>
-                <div class="top-bar-item">MODEL // ONE-T PRO MAX</div>
-                <div class="top-bar-item">REF // OT-2024-SS304</div>
-                <div class="top-bar-divider"></div>
-                <div class="top-bar-item live"><span class="dot pulse-dot"></span>LIVE RENDER</div>
-            </div>
-
-            <!-- BOTTOM PRECISION STRIP -->
-            <div class="eng-bottom-strip">
-                <div class="strip-item">
-                    <span class="strip-key">CAPACITY</span>
-                    <span class="strip-val">750ML</span>
-                </div>
-                <div class="strip-divider"></div>
-                <div class="strip-item">
-                    <span class="strip-key">WEIGHT</span>
-                    <span class="strip-val">280G</span>
-                </div>
-                <div class="strip-divider"></div>
-                <div class="strip-item">
-                    <span class="strip-key">HEIGHT</span>
-                    <span class="strip-val">27CM</span>
-                </div>
-                <div class="strip-divider"></div>
-                <div class="strip-item">
-                    <span class="strip-key">DIAMETER</span>
-                    <span class="strip-val">7.5CM</span>
-                </div>
-                <div class="strip-divider"></div>
-                <div class="strip-item">
-                    <span class="strip-key">WALL</span>
-                    <span class="strip-val">2.5MM</span>
-                </div>
-            </div>
-
-            <!-- EDITORIAL INFO CARDS (existing, preserved) -->
-            <div class="content-layer">
-                <div class="info-card" id="card1">
-                    <div class="meta"><span>01</span> // MATERIAL</div>
-                    <h2>The 304 Forged Core</h2>
-                    <p>Constructed from surgical-grade stainless steel for total purity.</p>
-                </div>
-                <div class="info-card" id="card2">
-                    <div class="meta"><span>02</span> // THERMAL</div>
-                    <h2>Vacuum Shield</h2>
-                    <p>A 2.5mm airless void maintains temperature for 24 hours.</p>
-                </div>
-                <div class="info-card" id="card3">
-                    <div class="meta"><span>03</span> // ARMOR</div>
-                    <h2>Electro-Fusion</h2>
-                    <p>Matte finish fused at the molecular level for scratch resistance.</p>
-                </div>
-            </div>
-
-        </div>
-        <div class="scroll-track"></div>
-    </section>
-
-    <!-- SECTION 03: LIFESTYLE GALLERY -->
-    <section class="onet-lifestyle">
-        <div class="mesh-gradient-bg"></div>
-
-        <!-- FLOATING DECORATIVE BLOBS -->
-        <div class="lifestyle-blob blob-a"></div>
-        <div class="lifestyle-blob blob-b"></div>
-
-        <div class="lifestyle-container">
-
-            <!-- HEADER -->
-            <div class="gallery-header">
-                <span class="tagline">DESIGNED FOR MOTION</span>
-                <h1 class="display-title">Beyond<span>.</span> Purity</h1>
-            </div>
-
-            <!-- MAIN SHOWCASE ROW: Editorial Left + Model + Cards Right -->
-            <div class="lifestyle-main-row">
-
-                <!-- LEFT EDITORIAL BLOCK -->
-                <div class="editorial-left">
-                    <div class="editorial-vert-text">ONE-T × 2024</div>
-                    <div class="editorial-tag">↳ CRAFTED SERIES</div>
-                    <h2 class="editorial-heading">Fluid<br>by<br>Design.</h2>
-                    <p class="editorial-body">Every curve calculated. Every gram considered. The bottle that moves with your body, not against it. Inspired by the laws of fluid dynamics.</p>
-                    <div class="editorial-divider"></div>
-                    <div class="editorial-meta-row">
-                        <div class="editorial-meta-item">
-                            <span class="em-num">03</span>
-                            <span class="em-label">Colorways</span>
-                        </div>
-                        <div class="editorial-meta-item">
-                            <span class="em-num">∞</span>
-                            <span class="em-label">Refills</span>
-                        </div>
-                        <div class="editorial-meta-item">
-                            <span class="em-num">01</span>
-                            <span class="em-label">Planet</span>
-                        </div>
-                    </div>
-
-                    <!-- Stacked mini chips -->
-                    <div class="lifestyle-chip-stack">
-                        <div class="ls-chip">
-                            <span class="chip-dot"></span>
-                            Sunrise Peach
-                        </div>
-                        <div class="ls-chip active-chip">
-                            <span class="chip-dot"></span>
-                            Matte Obsidian
-                        </div>
-                        <div class="ls-chip">
-                            <span class="chip-dot"></span>
-                            Arctic Frost
-                        </div>
-                    </div>
-                </div>
-
-                <!-- CENTER: 3D SPOTLIGHT -->
-                <div class="lifestyle-showcase">
-                    <div class="podium-glow"></div>
-                    <model-viewer 
-                        id="lifestyleModel"
-                        src="bottle.glb" 
-                        alt="One-T Lifestyle"
-                        environment-image="neutral"
-                        exposure="1.2"
-                        interaction-prompt="none"
-                        auto-rotate
-                        camera-controls
-                        disable-zoom
-                        style="width: 100%; height: 70vh;">
-                    </model-viewer>
-                    <!-- Floating orbit ring decoration -->
-                    <div class="model-ring"></div>
-                    <div class="model-ring ring-2"></div>
-                </div>
-
-                <!-- RIGHT STACKED GLASS CARDS -->
-                <div class="lifestyle-cards-right">
-                    <div class="ls-glass-card lg-card float-card-1">
-                        <div class="lg-card-tag">ERGONOMICS</div>
-                        <h3 class="lg-card-heading">Form Meets Function</h3>
-                        <p class="lg-card-body">Curvatures inspired by organic forms for a natural grip, even during high-intensity movement.</p>
-                        <div class="lg-card-visual">
-                            <div class="grip-diagram">
-                                <div class="grip-ring"></div>
-                                <div class="grip-ring gr-2"></div>
-                                <div class="grip-ring gr-3"></div>
-                                <div class="grip-dot"></div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Home</a></li>
+                <li class="nav-has-dropdown" id="productsNavItem">
+                    <a href="#" class="nav-products-trigger" id="productsTrigger">
+                        Products
+                        <svg class="dropdown-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <div class="products-dropdown" id="productsDropdown">
+                        <div class="dropdown-shimmer"></div>
+                        <div class="dropdown-header"><span class="dropdown-label">Browse Categories</span></div>
+                        <div class="dropdown-inner">
+                            <div class="dropdown-category" data-category="lunch-box">
+                                <div class="cat-icon-wrap"><span class="cat-emoji">🥡</span></div>
+                                <div class="cat-info"><span class="cat-name">Lunch Box</span><span class="cat-sub">4 products</span></div>
+                                <svg class="cat-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6H9.5M6.5 3L9.5 6L6.5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="dropdown-category active-cat" data-category="water-bottle">
+                                <div class="cat-icon-wrap"><span class="cat-emoji">💧</span></div>
+                                <div class="cat-info"><span class="cat-name">Water Bottle</span><span class="cat-sub">4 products</span></div>
+                                <svg class="cat-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6H9.5M6.5 3L9.5 6L6.5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="dropdown-category" data-category="gym-bottle">
+                                <div class="cat-icon-wrap"><span class="cat-emoji">🏋️</span></div>
+                                <div class="cat-info"><span class="cat-name">Gym Bottle</span><span class="cat-sub">4 products</span></div>
+                                <svg class="cat-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6H9.5M6.5 3L9.5 6L6.5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="dropdown-category" data-category="container">
+                                <div class="cat-icon-wrap"><span class="cat-emoji"></span></div>
+                                <div class="cat-info"><span class="cat-name">Container</span><span class="cat-sub">4 products</span></div>
+                                <svg class="cat-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6H9.5M6.5 3L9.5 6L6.5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <!-- ✅ FIX: Kitchen category added -->
+                            <div class="dropdown-category" data-category="Kitchen">
+                                <div class="cat-icon-wrap"><span class="cat-emoji">🍳</span></div>
+                                <div class="cat-info"><span class="cat-name">Kitchen</span><span class="cat-sub">4 products</span></div>
+                                <svg class="cat-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6H9.5M6.5 3L9.5 6L6.5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                             </div>
                         </div>
+                        <div class="dropdown-footer-strip"><span>↳ Scroll to explore after selecting</span></div>
                     </div>
-
-                    <div class="ls-glass-card sm-card float-card-2">
-                        <div class="lg-card-tag">COLORWAYS</div>
-                        <div class="color-swatch-row">
-                            <div class="cswatch" style="background:#1a1a1a"></div>
-                            <div class="cswatch" style="background:#F9B49E"></div>
-                            <div class="cswatch" style="background:#D6EAF8"></div>
-                        </div>
-                        <p class="lg-card-body sm-body">Premium finishes in three exclusive colorways.</p>
-                    </div>
-
-                    <div class="ls-glass-card sm-card float-card-3">
-                        <div class="rotating-badge">
-                            <svg class="rotate-svg" viewBox="0 0 100 100">
-                                <defs><path id="circle-path" d="M 50,50 m -37,0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"/></defs>
-                                <text font-size="11.5" fill="#333" font-family="monospace" letter-spacing="2">
-                                    <textPath href="#circle-path">ONE-T · PREMIUM · CRAFTED · 2024 · </textPath>
-                                </text>
-                            </svg>
-                            <div class="badge-center">✦</div>
-                        </div>
-                    </div>
-
-                    <div class="ls-glass-card review-card float-card-4">
-                        <div class="review-stars">★★★★★</div>
-                        <p class="review-text">"The last bottle you'll ever need. Flawless engineering, exceptional feel."</p>
-                        <div class="review-author">— M. Torres, Elite Athlete</div>
-                    </div>
-                </div>
-
-            </div><!-- end .lifestyle-main-row -->
-
-            <!-- FLOATING GLASS CARDS (existing, preserved) -->
-            <div class="feature-grid">
-                <div class="glass-card">
-                    <h3>Ergonomic Flow</h3>
-                    <p>Curvatures inspired by organic forms for a natural grip.</p>
-                </div>
-                <div class="glass-card">
-                    <h3>Vibrant Core</h3>
-                    <p>Premium finishes available in sunset and clay tones.</p>
-                </div>
+                </li>
+                <li><a href="#section03">Collection</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="bulk.html" class="btn-bulk">Bulk Inquiry</a>
+                <a href="investor.html" class="btn-investor">Investor</a>
+                <a href="https://dimazo.in/" target="_blank" class="btn-primary shop-btn-link">
+                    Shop Now
+                </a>
             </div>
-
-            <!-- BOTTOM FEATURE STRIP -->
-            <div class="ls-bottom-strip">
-                <div class="ls-strip-block">
-                    <div class="ls-strip-icon">⬡</div>
-                    <div class="ls-strip-text">
-                        <strong>Zero Compromise</strong>
-                        <span>Built for champions</span>
-                    </div>
-                </div>
-                <div class="ls-strip-sep"></div>
-                <div class="ls-strip-block">
-                    <div class="ls-strip-icon">◎</div>
-                    <div class="ls-strip-text">
-                        <strong>Lifetime Guarantee</strong>
-                        <span>We stand behind every drop</span>
-                    </div>
-                </div>
-                <div class="ls-strip-sep"></div>
-                <div class="ls-strip-block">
-                    <div class="ls-strip-icon">✦</div>
-                    <div class="ls-strip-text">
-                        <strong>Award Winning</strong>
-                        <span>Red Dot Design 2024</span>
-                    </div>
-                </div>
-                <div class="ls-strip-sep"></div>
-                <div class="ls-strip-block">
-                    <div class="ls-strip-icon">♺</div>
-                    <div class="ls-strip-text">
-                        <strong>Sustainable</strong>
-                        <span>Carbon neutral certified</span>
-                    </div>
-                </div>
-                <div class="ls-strip-cta">
-                    <button class="strip-cta-btn">Explore All →</button>
-                </div>
-            </div>
-
-            <!-- FLOATING METADATA CHIPS -->
-            <div class="floating-chips">
-                <div class="f-chip chip-float-1">Premium Steel ↗</div>
-                <div class="f-chip chip-float-2">750ML Capacity</div>
-                <div class="f-chip chip-float-3">24h Cold ✓</div>
-                <div class="f-chip chip-float-4">Drop Proof</div>
-            </div>
-
+            <!-- Mobile hamburger -->
+            <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
         </div>
-    </section>
+    </nav>
 
-    <!-- FOOTER -->
-<footer class="onet-footer">
-    <div class="footer-noise"></div>
-    <div class="footer-glow-left"></div>
-    <div class="footer-glow-right"></div>
+    <!-- Mobile nav drawer -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">✕</button>
+        <ul class="mobile-nav-links">
+            <li><a href="#">Home</a></li>
+            <!-- ✅ FIX: Mobile Products expanded to show all 5 categories -->
+            <li class="mobile-nav-has-sub">
+                <span class="mobile-nav-cat-head">Products</span>
+                <ul class="mobile-nav-sub">
+                    <li><a href="#" class="mobile-cat-link" data-category="water-bottle">💧 Water Bottle</a></li>
+                    <li><a href="#" class="mobile-cat-link" data-category="gym-bottle">🏋️ Gym Bottle</a></li>
+                    <li><a href="#" class="mobile-cat-link" data-category="lunch-box">🥡 Lunch Box</a></li>
+                    <li><a href="#" class="mobile-cat-link" data-category="container">🍱 Container</a></li>
+                    <li><a href="#" class="mobile-cat-link" data-category="Kitchen">🍳 Kitchen</a></li>
+                </ul>
+            </li>
+            <li><a href="#section03">Collection</a></li>
+            <li><a href="about.html">About</a></li>
+        </ul>
+        <div class="mobile-nav-bottom-actions">
+            <a href="bulk.html" class="mobile-bulk-btn">Bulk Inquiry</a>
+            <a href="https://dimazo.in/" target="_blank" class="mobile-shop-btn">Shop Now</a>
+        </div>
+    </div>
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
 
-    <!-- TOP MARQUEE STRIP -->
-    <div class="footer-marquee-wrap">
-        <div class="footer-marquee-track">
-            <span>ONE-T</span><span class="sep">✦</span>
-            <span>PRECISION ENGINEERED</span><span class="sep">✦</span>
-            <span>304 STEEL</span><span class="sep">✦</span>
-            <span>BEYOND PURITY</span><span class="sep">✦</span>
-            <span>THERMAL LOCK</span><span class="sep">✦</span>
-            <span>ONE-T</span><span class="sep">✦</span>
-            <span>PRECISION ENGINEERED</span><span class="sep">✦</span>
-            <span>304 STEEL</span><span class="sep">✦</span>
-            <span>BEYOND PURITY</span><span class="sep">✦</span>
-            <span>THERMAL LOCK</span><span class="sep">✦</span>
+    <img src="landing.png" alt="Background" class="hero-bg">
+
+    <div class="category-indicator" id="categoryIndicator">
+        <span class="ci-dot"></span>
+        <span class="ci-label" id="ciLabel">Water Bottle</span>
+    </div>
+
+    <div class="orbit-pivot" id="orbitPivot">
+        <div class="orbit-wheel" id="orbitWheel"></div>
+    </div>
+</div>
+
+<!-- scroll spacer for orbit animation -->
+<div id="orbitSpacer" style="height: 800vh;"></div>
+
+<!-- ============================================================
+     SECTION 02 — SCROLLING PNG CHARACTER
+============================================================ -->
+<section class="section-scroll-char" id="section02">
+    <div class="char-bg-layer char-bg-1" aria-hidden="true"></div>
+    <div class="char-bg-layer char-bg-2" aria-hidden="true"></div>
+    <div class="char-bg-layer char-bg-3" aria-hidden="true"></div>
+    <div class="char-blob char-blob-a" aria-hidden="true"></div>
+    <div class="char-blob char-blob-b" aria-hidden="true"></div>
+    <div class="char-blob char-blob-c" aria-hidden="true"></div>
+
+    <div class="char-text-panel">
+        <div class="char-eyebrow" data-reveal>
+            <span class="eyebrow-line"></span>
+            <span class="eyebrow-txt">Crafted Precision</span>
+        </div>
+        <h2 class="char-heading" data-split-reveal>
+            Engineered for<br><em>every moment</em>
+        </h2>
+        <p class="char-body" data-reveal>
+            Each product is sculpted from premium-grade materials,
+            built to move with you — through stillness and stride,
+            from sunrise to the last light of day.
+        </p>
+        <div class="char-stats" data-reveal>
+            <div class="stat-pill">
+                <span class="stat-num">24<em>h</em></span>
+                <span class="stat-lbl">Temperature Lock</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat-pill">
+                <span class="stat-num">BPA<em>free</em></span>
+                <span class="stat-lbl">Medical Grade</span>
+            </div>
+            <div class="stat-divider" aria-hidden="true"></div>
+            <div class="stat-pill">
+                <span class="stat-num">∞</span>
+                <span class="stat-lbl">Lifetime Warranty</span>
+            </div>
+        </div>
+        <div class="char-cta" data-reveal>
+            <button class="btn-ghost-luxury">Explore Range
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
         </div>
     </div>
 
-    <div class="footer-inner">
-
-        <!-- BIG DISPLAY LOGO -->
-        <div class="footer-logo-block">
-            <h2 class="footer-display-logo">ONE-T<span>.</span></h2>
-            <p class="footer-tagline">Engineered for the relentless.</p>
-            <button class="footer-cta-btn">Shop the Collection →</button>
-        </div>
-
-        <!-- LINKS GRID -->
-        <div class="footer-links-grid">
-            <div class="footer-col">
-                <span class="footer-col-label">Product</span>
-                <a href="#">Performance Shaker</a>
-                <a href="#">Pro Gym Bottle</a>
-                <a href="#">Precision Combo</a>
-                <a href="#">Limited Edition</a>
-            </div>
-            <div class="footer-col">
-                <span class="footer-col-label">Company</span>
-                <a href="#">About ONE-T</a>
-                <a href="#">Engineering</a>
-                <a href="#">Sustainability</a>
-                <a href="#">Careers</a>
-            </div>
-            <div class="footer-col">
-                <span class="footer-col-label">Support</span>
-                <a href="#">Contact Us</a>
-                <a href="#">Returns</a>
-                <a href="#">Warranty</a>
-                <a href="#">FAQ</a>
-            </div>
-        </div>
-
-        <!-- RIGHT NEWSLETTER + SOCIALS -->
-        <div class="footer-right-block">
-            <span class="footer-col-label">Stay in the loop</span>
-            <p class="footer-nl-desc">New drops. Engineering stories. Zero spam.</p>
-            <div class="footer-input-row">
-                <input type="email" placeholder="your@email.com" class="footer-input">
-                <button class="footer-input-btn">→</button>
-            </div>
-            <div class="footer-socials">
-                <a href="#" class="social-pill">Instagram</a>
-                <a href="#" class="social-pill">TikTok</a>
-                <a href="#" class="social-pill">X</a>
-            </div>
-        </div>
-
+    <div class="char-stage" id="charStage">
+        <div class="char-shadow" id="charShadow" aria-hidden="true"></div>
+        <img
+            src="asset/B2.png"
+            alt="Dimazofly signature water bottle"
+            class="char-png"
+            id="charPng"
+        >
     </div>
 
-    <!-- BOTTOM BAR -->
-    <div class="footer-bottom-bar">
-        <span class="footer-copy">© 2024 ONE-T. All rights reserved.</span>
-        <div class="footer-bottom-links">
-            <a href="#">Privacy</a>
-            <a href="#">Terms</a>
-            <a href="#">Cookies</a>
+    <div class="float-tag float-tag-1" data-reveal><span class="ft-dot" aria-hidden="true"></span>Double-wall vacuum</div>
+    <div class="float-tag float-tag-2" data-reveal><span class="ft-dot" aria-hidden="true"></span>Leak-proof seal</div>
+    <div class="float-tag float-tag-3" data-reveal><span class="ft-dot" aria-hidden="true"></span>Matte finish</div>
+
+    <div class="scroll-progress-bar" id="scrollProgressBar" aria-hidden="true"></div>
+</section>
+
+<!-- ============================================================
+     SECTION 03 — ROTATING CIRCULAR IMAGE GALLERY
+============================================================ -->
+<section class="section-orbit-gallery" id="section03">
+    <div class="og-bg-mesh" aria-hidden="true"></div>
+    <div class="og-ring og-ring-1" aria-hidden="true"></div>
+    <div class="og-ring og-ring-2" aria-hidden="true"></div>
+    <div class="og-ring og-ring-3" aria-hidden="true"></div>
+    <div class="og-glow og-glow-a" aria-hidden="true"></div>
+    <div class="og-glow og-glow-b" aria-hidden="true"></div>
+
+    <div class="og-header" data-reveal>
+        <span class="og-eyebrow">Collection Gallery</span>
+        <h2 class="og-heading" data-split-reveal>Embrace The Empathic, <br>Spark of Joy.</h2>
+        <p class="og-sub">Five icons. Infinite stories. Hover to explore.</p>
+    </div>
+
+    <div class="og-orbital-stage" id="ogStage">
+        <div class="og-center-text">
+            <span class="og-center-label">Dimazofly</span>
+            <span class="og-center-sub">Collection</span>
         </div>
-        <span class="footer-made">Crafted with precision ✦</span>
+        <div class="og-orbit-item" data-orbit-idx="0">
+            <div class="og-item-inner">
+                <img src="asset/B2.png" alt="Crystal Bottle" class="og-img">
+            </div>
+        </div>
+        <div class="og-orbit-item" data-orbit-idx="1">
+            <div class="og-item-inner">
+                <img src="asset/B3.png" alt="Sport Bottle" class="og-img">
+            </div>
+        </div>
+        <div class="og-orbit-item" data-orbit-idx="2">
+            <div class="og-item-inner">
+                <img src="asset/B4.png" alt="Thermal Bottle" class="og-img">
+            </div>
+        </div>
+        <div class="og-orbit-item" data-orbit-idx="3">
+            <div class="og-item-inner">
+                <img src="asset/G1.png" alt="Gym Bottle" class="og-img">
+            </div>
+        </div>
+        <div class="og-orbit-item" data-orbit-idx="4">
+            <div class="og-item-inner">
+                <img src="asset/G2.png" alt="Pro Gym Bottle" class="og-img">
+            </div>
+        </div>
+    </div>
+
+    <div class="og-footer" data-reveal>
+        <button class="btn-luxury-full" onclick="openBulkModal()">Shop the Collection</button>
+        <p class="og-footer-note">Free delivery on all orders above ₹999</p>
+    </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="footer-cinema" id="footerSection">
+    <div class="fc-bg-gradient" aria-hidden="true"></div>
+    <div class="fc-blur-light fc-bl-1" aria-hidden="true"></div>
+    <div class="fc-blur-light fc-bl-2" aria-hidden="true"></div>
+    <div class="fc-blur-light fc-bl-3" aria-hidden="true"></div>
+
+    <div class="fc-inner">
+        <div class="fc-brand-giant" data-reveal>
+            <span class="fc-brand-text">Dimazo</span>
+            <span class="fc-brand-dash" aria-hidden="true">—</span>
+            <span class="fc-brand-t"></span>
+        </div>
+        <p class="fc-tagline" data-reveal><em>Beyond Purity.</em> The art of living well.</p>
+
+        <div class="fc-newsletter" data-reveal>
+            <div class="fc-nl-label">Stay in the story</div>
+            <div class="fc-nl-form">
+                <input type="email" class="fc-nl-input" placeholder="your@email.com" aria-label="Email address">
+                <button class="fc-nl-btn" aria-label="Subscribe">
+                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                        <path d="M3.75 9h10.5M10.5 5.25L14.25 9l-3.75 3.75" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+            </div>
+            <p class="fc-nl-hint">No spam. Only drops, stories & exclusives.</p>
+        </div>
+
+        <div class="fc-links-grid" data-reveal>
+            <div class="fc-link-col">
+                <span class="fc-link-head">Products</span>
+                <a href="#" class="fc-link">Water Bottles</a>
+                <a href="#" class="fc-link">Gym Bottles</a>
+                <a href="#" class="fc-link">Lunch Boxes</a>
+                <a href="#" class="fc-link">Choppers</a>
+                <a href="#" class="fc-link">Kitchen</a>
+            </div>
+            <div class="fc-link-col">
+                <span class="fc-link-head">Brand</span>
+                <a href="#" class="fc-link">Our Story</a>
+                <a href="#" class="fc-link">Sustainability</a>
+                <a href="#" class="fc-link">Press Kit</a>
+                <a href="#" class="fc-link">Careers</a>
+            </div>
+            <div class="fc-link-col">
+                <span class="fc-link-head">Support</span>
+                <a href="#" class="fc-link">Help Center</a>
+                <a href="#" class="fc-link">Returns</a>
+                <a href="#" class="fc-link">Track Order</a>
+                <a href="#" class="fc-link">Contact</a>
+            </div>
+        </div>
+
+        <div class="fc-social-row" data-reveal>
+            <a href="#" class="fc-social-link" aria-label="Instagram">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor"/></svg>
+            </a>
+            <a href="#" class="fc-social-link" aria-label="Pinterest">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.24 2.65 7.86 6.39 9.29-.09-.78-.17-1.98.03-2.83.19-.76 1.28-5.43 1.28-5.43s-.33-.65-.33-1.62c0-1.52.88-2.65 1.97-2.65.93 0 1.38.7 1.38 1.54 0 .94-.6 2.34-.91 3.64-.26 1.09.54 1.97 1.6 1.97 1.93 0 3.22-2.47 3.22-5.39 0-2.22-1.49-3.88-4.19-3.88-3.06 0-4.96 2.29-4.96 4.85 0 .88.26 1.5.66 1.98.18.22.21.3.14.55l-.25.95c-.08.32-.32.43-.59.31C5.89 14.4 5 12.84 5 10.91 5 7.63 7.7 4.09 12.6 4.09c3.93 0 6.54 2.84 6.54 5.89 0 4.04-2.24 7.07-5.54 7.07-1.11 0-2.15-.6-2.51-1.27l-.68 2.62c-.25.94-.91 2.12-1.35 2.83.82.25 1.69.39 2.58.39 5.52 0 10-4.48 10-10S17.52 2 12 2z"/></svg>
+            </a>
+            <a href="#" class="fc-social-link" aria-label="Twitter / X">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+            <a href="#" class="fc-social-link" aria-label="YouTube">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 0 0 1.95-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </a>
+        </div>
+
+        <div class="fc-bottom-strip">
+            <span class="fc-copy">© 2025 Dimazofly. All rights reserved.</span>
+            <span class="fc-tagline-mini">Made with precision. Designed for life.</span>
+        </div>
     </div>
 </footer>
 
-    <script src="script.js"></script>
+<script src="script.js"></script>
+<script src="premium.js"></script>
 </body>
 </html>

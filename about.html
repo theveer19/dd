@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About — Dimazofly</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Syne:wght@700;800;900&family=Cormorant+Garamond:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="about.css">
+</head>
+<body>
+
+    <!-- NAVBAR — identical to index.html -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="logo.png" alt="DimazoFly" class="nav-logo-img">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="nav-has-dropdown" id="productsNavItem">
+                    <a href="#" class="nav-products-trigger" id="productsTrigger">
+                        Products
+                        <svg class="dropdown-chevron" width="10" height="6" viewBox="0 0 10 6" fill="none">
+                            <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                    <div class="products-dropdown" id="productsDropdown">
+                        <div class="dropdown-shimmer"></div>
+                        <div class="dropdown-header"><span class="dropdown-label">Browse Categories</span></div>
+                        <div class="dropdown-inner">
+                            <div class="dropdown-category" data-category="lunch-box">
+                                <div class="cat-icon-wrap"><span class="cat-emoji">🥡</span></div>
+                                <div class="cat-info"><span class="cat-name">Lunch Box</span><span class="cat-sub">3 products</span></div>
+                                <svg class="cat-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6H9.5M6.5 3L9.5 6L6.5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="dropdown-category" data-category="water-bottle">
+                                <div class="cat-icon-wrap"><span class="cat-emoji">💧</span></div>
+                                <div class="cat-info"><span class="cat-name">Water Bottle</span><span class="cat-sub">3 products</span></div>
+                                <svg class="cat-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6H9.5M6.5 3L9.5 6L6.5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="dropdown-category" data-category="gym-bottle">
+                                <div class="cat-icon-wrap"><span class="cat-emoji">🏋️</span></div>
+                                <div class="cat-info"><span class="cat-name">Gym Bottle</span><span class="cat-sub">3 products</span></div>
+                                <svg class="cat-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6H9.5M6.5 3L9.5 6L6.5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="dropdown-category" data-category="chopper">
+                                <div class="cat-icon-wrap"><span class="cat-emoji">🔪</span></div>
+                                <div class="cat-info"><span class="cat-name">Chopper</span><span class="cat-sub">3 products</span></div>
+                                <svg class="cat-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6H9.5M6.5 3L9.5 6L6.5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                        </div>
+                        <div class="dropdown-footer-strip"><span>↳ Scroll to explore after selecting</span></div>
+                    </div>
+                </li>
+                <li><a href="#">Collection</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="bulk.html" class="btn-bulk">Bulk Inquiry</a>
+                <a href="investor.html" class="btn-investor">Investor</a>
+                <a href="https://dimazo.in/" target="_blank" class="btn-primary">Shop Now</a>
+            </div>
+            <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile nav drawer -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+        <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">✕</button>
+        <ul class="mobile-nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#section03">Products</a></li>
+            <li><a href="index.html#section03">Collection</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="investor.html">Investor</a></li>
+            <li><a href="bulk.html">Bulk Inquiry</a></li>
+        </ul>
+        <a href="https://dimazo.in/" target="_blank" class="mobile-shop-btn">Shop Now</a>
+    </div>
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+    <!-- HERO -->
+    <section class="about-hero">
+        <div class="hero-blur hero-blur-1"></div>
+        <div class="hero-blur hero-blur-2"></div>
+
+        <div class="hero-left">
+            <span class="hero-eyebrow">ABOUT DIMAZOFLY</span>
+
+            <h1 class="hero-title">
+                Building India's<br>
+                <em>trusted kitchen</em><br>
+                appliance brand.
+            </h1>
+
+            <p class="hero-desc">
+                Dimazofly Kitchen Appliances Pvt. Ltd. is a dynamic Indian company
+                focused on delivering innovative, high-demand kitchen solutions
+                through efficient sourcing, manufacturing partnerships and
+                nationwide distribution.
+            </p>
+
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <h2>5M+</h2>
+                    <span>Orders Fulfilled</span>
+                </div>
+                <div class="hero-stat">
+                    <h2>24h</h2>
+                    <span>Thermal Technology</span>
+                </div>
+                <div class="hero-stat">
+                    <h2>100%</h2>
+                    <span>BPA Free</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-right">
+            <img src="asset/G2.png" alt="ONE-T Bottle" class="hero-product">
+        </div>
+    </section>
+
+    <!-- COMPANY STORY -->
+    <section class="company-story">
+        <div class="story-header">
+            <span class="story-eyebrow">OUR STORY</span>
+            <h2>
+                Built with precision.<br>
+                <em>Designed for everyday life.</em>
+            </h2>
+        </div>
+        <div class="story-grid">
+            <div class="story-card">
+                <h3>Trusted Manufacturing</h3>
+                <p>We collaborate with trusted manufacturers and production ecosystems to create premium-quality products built for durability, functionality, and long-term everyday use.</p>
+            </div>
+            <div class="story-card">
+                <h3>Make In India</h3>
+                <p>ONE-T supports the Make in India vision by building strong sourcing and distribution systems while empowering local manufacturing growth.</p>
+            </div>
+            <div class="story-card">
+                <h3>Innovation Driven</h3>
+                <p>From leak-proof engineering to premium thermal insulation technology, every product is designed with performance and modern aesthetics in mind.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MISSION / VISION -->
+    <section class="mission-section">
+        <div class="mission-card">
+            <span class="mission-tag">OUR MISSION</span>
+            <h3>To build ONE-T into a trusted household brand.</h3>
+            <p>Delivering innovative, affordable, and high-performance kitchen and lifestyle products across India through quality, design, and accessibility.</p>
+        </div>
+        <div class="mission-card">
+            <span class="mission-tag">OUR VISION</span>
+            <h3>Redefining modern lifestyle products.</h3>
+            <p>We aim to bridge global design trends with accessible manufacturing to create products that elevate everyday experiences.</p>
+        </div>
+    </section>
+
+    <!-- TECHNOLOGY -->
+    <section class="tech-section">
+        <div class="tech-left">
+            <img src="/asset/B1.png" alt="ONE-T Product" class="tech-product">
+        </div>
+        <div class="tech-right">
+            <span class="tech-eyebrow">TECHNOLOGY</span>
+            <h2>
+                Precision engineering<br>
+                <em>meets luxury aesthetics</em>
+            </h2>
+            <p>ONE-T products integrate modern manufacturing technologies including injection molding, thermal insulation systems, and premium-grade material engineering.</p>
+            <ul class="tech-list">
+                <li>Injection molding precision</li>
+                <li>Leak-proof engineering</li>
+                <li>Premium matte finishes</li>
+                <li>Long-lasting thermal lock</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="about-cta">
+        <h2>
+            Designed for<br>
+            <em>modern India.</em>
+        </h2>
+        <a href="https://dimazo.in/" target="_blank" class="cta-btn">Explore Collection</a>
+    </section>
+
+    <script src="about.js"></script>
+
+    <script>
+        // Dropdown logic
+        (function initDropdown() {
+            var navItem  = document.getElementById('productsNavItem');
+            var dropdown = document.getElementById('productsDropdown');
+            if (!navItem || !dropdown) return;
+            var closeTimer = null;
+            var openDropdown  = function() { clearTimeout(closeTimer); navItem.classList.add('dropdown-open'); };
+            var closeDropdown = function() { closeTimer = setTimeout(function(){ navItem.classList.remove('dropdown-open'); }, 200); };
+            navItem.addEventListener('mouseenter', openDropdown);
+            navItem.addEventListener('mouseleave', closeDropdown);
+            dropdown.addEventListener('mouseenter', function(){ clearTimeout(closeTimer); });
+            dropdown.addEventListener('mouseleave', closeDropdown);
+        })();
+
+        // Mobile nav
+        (function initMobileNav() {
+            var ham = document.getElementById('navHamburger');
+            var drw = document.getElementById('mobileNavDrawer');
+            var ovl = document.getElementById('mobileNavOverlay');
+            var cls = document.getElementById('mobileNavClose');
+            if (!ham) return;
+            ham.addEventListener('click', function(){ drw.classList.add('open'); ovl.classList.add('open'); document.body.style.overflow='hidden'; });
+            function closeNav(){ drw.classList.remove('open'); ovl.classList.remove('open'); document.body.style.overflow=''; }
+            if (cls) cls.addEventListener('click', closeNav);
+            if (ovl) ovl.addEventListener('click', closeNav);
+            document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeNav(); });
+        })();
+
+        // Navbar shrink on scroll
+        window.addEventListener('scroll', function() {
+            var nav = document.querySelector('.navbar');
+            if (!nav) return;
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(249,236,226,0.95)';
+                nav.style.backdropFilter = 'blur(20px)';
+            } else {
+                nav.style.background = 'rgba(249,236,226,0.75)';
+            }
+        });
+    </script>
+</body>
+</html>
