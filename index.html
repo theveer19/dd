@@ -1,4 +1,4 @@
-/* index.html */
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -98,11 +98,21 @@
     </nav>
 
     <!-- Mobile nav drawer -->
+   <!-- ============================================================
+     MOBILE NAV DRAWER — paste this into index.html
+     Replace the existing <div class="mobile-nav-drawer"...> block
+     and the <div class="mobile-nav-overlay"...> with this.
+     ============================================================ -->
+
+    <!-- Mobile nav drawer -->
     <div class="mobile-nav-drawer" id="mobileNavDrawer">
         <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">✕</button>
+
+        <!-- Main nav links -->
         <ul class="mobile-nav-links">
-            <li><a href="#">Home</a></li>
-            <!-- ✅ FIX: Mobile Products expanded to show all 5 categories -->
+            <li><a href="#" class="active">Home</a></li>
+
+            <!-- Products with sub-categories -->
             <li class="mobile-nav-has-sub">
                 <span class="mobile-nav-cat-head">Products</span>
                 <ul class="mobile-nav-sub">
@@ -113,12 +123,16 @@
                     <li><a href="#" class="mobile-cat-link" data-category="Kitchen">🍳 Kitchen</a></li>
                 </ul>
             </li>
+
             <li><a href="#section03">Collection</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
+
+        <!-- Bottom action buttons: Bulk + Investor + Shop Now -->
         <div class="mobile-nav-bottom-actions">
             <a href="bulk.html" class="mobile-bulk-btn">Bulk Inquiry</a>
-            <a href="https://dimazo.in/" target="_blank" class="mobile-shop-btn">Shop Now</a>
+            <a href="investor.html" class="mobile-investor-btn">Investor</a>
+            <a href="https://dimazo.in/" target="_blank" rel="noopener noreferrer" class="mobile-shop-btn">Shop Now</a>
         </div>
     </div>
     <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>

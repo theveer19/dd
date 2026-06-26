@@ -866,6 +866,8 @@
 }
 
 /* ─── RESPONSIVE ────────────────────────────────────────────── */
+
+/* ── 992px — tablet ── */
 @media (max-width: 992px) {
     .section-scroll-char {
         flex-direction: column;
@@ -874,44 +876,36 @@
         min-height: auto;
         gap: 0;
     }
-    .char-text-panel {
-        max-width: 100%;
-        flex: none;
-        order: 2;
-    }
-    .char-stage {
-        flex: none;
-        width: 100%;
-        height: clamp(280px, 50vw, 500px);
-        order: 1;
-    }
+    .char-text-panel { max-width: 100%; flex: none; order: 2; }
+    .char-stage { flex: none; width: 100%; height: clamp(300px, 50vw, 500px); order: 1; }
     .char-body { max-width: 100%; }
     .char-stats { justify-content: center; }
     .char-cta { display: flex; justify-content: center; }
     .float-tag { display: none; }
 
-    .og-orbital-stage { width: 680px; height: 680px; }
+    /* Section 03 — large stage, big items */
+    .og-orbital-stage { width: 720px; height: 720px; }
+    .og-orbit-item { width: 200px; height: 260px; margin-left: -100px; margin-top: -130px; }
 }
 
+/* ── 768px — mobile ── */
 @media (max-width: 768px) {
-    .section-scroll-char {
-        padding: 60px 5vw 50px;
+    .section-scroll-char { padding: 60px 5vw 50px; }
+    .char-stage { height: clamp(240px, 60vw, 380px); }
+    .char-png { max-height: clamp(220px, 55vw, 360px); max-width: 92%; }
+
+    /* Section 03 — fill screen width, big items */
+    .section-orbit-gallery { padding: 60px 0 50px; overflow: hidden; }
+    .og-orbital-stage {
+        width: 96vw;
+        height: 96vw;
+        max-width: 520px;
+        max-height: 520px;
     }
-    .char-stage {
-        height: clamp(220px, 55vw, 360px);
-    }
-    .char-png {
-        max-height: clamp(200px, 50vw, 340px);
-        max-width: 90%;
-    }
-    .og-orbital-stage { width: 460px; height: 460px; }
-    .og-orbit-item {
-        width: 150px;
-        height: 190px;
-        margin-left: -75px;
-        margin-top: -95px;
-    }
-    .og-center-label { font-size: 20px; }
+    .og-orbit-item { width: 180px; height: 230px; margin-left: -90px; margin-top: -115px; }
+    .og-img { filter: drop-shadow(0 20px 40px rgba(217,184,168,0.3)); }
+    .og-center-label { font-size: 22px; }
+
     .fc-brand-text, .fc-brand-t { font-size: clamp(3rem, 12vw, 5rem); }
     .fc-links-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
     .fc-inner { padding: 0 24px 48px; }
@@ -919,26 +913,27 @@
     .fc-newsletter { max-width: 100%; }
 }
 
+/* ── 540px — small phones ── */
 @media (max-width: 540px) {
-    .og-orbital-stage { width: 360px; height: 360px; }
-    .og-orbit-item {
-        width: 110px;
-        height: 140px;
-        margin-left: -55px;
-        margin-top: -70px;
+    .og-orbital-stage {
+        width: 96vw;
+        height: 96vw;
+        max-width: 420px;
+        max-height: 420px;
     }
-    .og-header { margin-bottom: 30px; }
-    .section-orbit-gallery { padding: 70px 0 60px; }
-    .fc-links-grid { grid-template-columns: 1fr; gap: 32px; }
+    .og-orbit-item { width: 150px; height: 195px; margin-left: -75px; margin-top: -97px; }
+    .og-header { margin-bottom: 24px; }
+    .fc-links-grid { grid-template-columns: 1fr; gap: 28px; }
 }
 
+/* ── 400px — very small ── */
 @media (max-width: 400px) {
-    .og-orbital-stage { width: 300px; height: 300px; }
-    .og-orbit-item {
-        width: 90px;
-        height: 115px;
-        margin-left: -45px;
-        margin-top: -57px;
+    .og-orbital-stage {
+        width: 96vw;
+        height: 96vw;
+        max-width: 360px;
+        max-height: 360px;
     }
+    .og-orbit-item { width: 125px; height: 160px; margin-left: -62px; margin-top: -80px; }
     .fc-inner { padding: 0 16px 36px; }
 }

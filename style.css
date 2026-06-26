@@ -2,8 +2,6 @@
    GLOBAL TOKENS
    ============================================================ */
 
-/* style.css */
-
 :root {
     --p-text: #FFFFFF;
     --s-text: rgba(255, 255, 255, 0.7);
@@ -273,9 +271,7 @@ body {
     background: rgba(0,0,0,0.05);
     transform: translateX(2px);
 }
-.dropdown-category.active-cat {
-    background: rgba(0,0,0,0.04);
-}
+.dropdown-category.active-cat { background: rgba(0,0,0,0.04); }
 
 .cat-icon-wrap {
     width: 34px; height: 34px; border-radius: 10px;
@@ -293,9 +289,7 @@ body {
     color: #1a1a1a;
     letter-spacing: 0.2px; transition: color 0.2s ease;
 }
-.cat-sub {
-    font-size: 10px; color: rgba(0,0,0,0.4); letter-spacing: 0.3px;
-}
+.cat-sub { font-size: 10px; color: rgba(0,0,0,0.4); letter-spacing: 0.3px; }
 
 .cat-arrow { color: rgba(0,0,0,0.25); flex-shrink: 0; opacity: 0; transition: opacity 0.2s ease, transform 0.2s ease; }
 .dropdown-category:hover .cat-arrow { opacity: 1; transform: translateX(2px); color: rgba(0,0,0,0.5); }
@@ -330,7 +324,7 @@ body {
 }
 
 /* ============================================================
-   BULK + SHOP BUTTONS
+   BULK BUTTON
    ============================================================ */
 .btn-bulk {
     text-decoration: none;
@@ -370,15 +364,22 @@ body {
     from { opacity: 0; transform: translateX(-50%) translateY(12px); }
     to   { opacity: 1; transform: translateX(-50%) translateY(0); }
 }
-.ci-dot { width: 7px; height: 7px; border-radius: 50%; background: #fff; flex-shrink: 0; animation: ciPulse 2s ease-in-out infinite; }
-@keyframes ciPulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.7); } }
+.ci-dot {
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #fff; flex-shrink: 0;
+    animation: ciPulse 2s ease-in-out infinite;
+}
+@keyframes ciPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.7); }
+}
 .ci-label { font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(255,255,255,0.75); }
 
 .orbit-wheel { transition: opacity 0.15s ease; }
 .orbit-wheel.is-switching { opacity: 0; pointer-events: none; }
 
 /* ============================================================
-   MOBILE NAV — HAMBURGER
+   MOBILE NAV — HAMBURGER BUTTON
    ============================================================ */
 .nav-hamburger {
     display: none;
@@ -407,150 +408,188 @@ body {
     position: fixed;
     top: 0;
     right: -100%;
-    width: min(320px, 85vw);
+    width: min(320px, 88vw);
     height: 100vh;
-    background: rgba(20, 20, 20, 0.97);
+    background: rgba(15, 15, 15, 0.98);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
     z-index: 10001;
-    padding: 80px 36px 40px;
+    /* padding: top leaves room for close btn, bottom for action buttons */
+    padding: 72px 28px 32px;
     display: flex;
     flex-direction: column;
     gap: 0;
     transition: right 0.4s cubic-bezier(0.22,1,0.36,1);
-    box-shadow: -8px 0 40px rgba(0,0,0,0.3);
+    box-shadow: -8px 0 40px rgba(0,0,0,0.5);
+    overflow-y: auto;
 }
 .mobile-nav-drawer.open { right: 0; }
 
+/* Close button */
 .mobile-nav-close {
     position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 36px; height: 36px;
+    top: 18px; right: 18px;
+    width: 38px; height: 38px;
     border-radius: 50%;
-    border: 1px solid rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.15);
     background: rgba(255,255,255,0.08);
-    color: rgba(255,255,255,0.5);
-    font-size: 15px;
+    color: rgba(255,255,255,0.6);
+    font-size: 16px;
     cursor: pointer;
     display: flex; align-items: center; justify-content: center;
-    transition: 0.3s;
+    transition: background 0.2s, color 0.2s;
+    z-index: 2;
 }
 .mobile-nav-close:hover {
-    background: rgba(255,255,255,0.16);
+    background: rgba(255,255,255,0.18);
     color: #fff;
 }
 
+/* Main nav links */
 .mobile-nav-links {
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    flex: 1;
+    gap: 0;
+    margin-bottom: 8px;
 }
-.mobile-nav-links a {
+.mobile-nav-links > li > a {
     display: block;
-    padding: 14px 0;
+    padding: 16px 4px;
     font-family: 'Syne', sans-serif;
     font-size: 22px;
     font-weight: 700;
-    color: rgba(255,255,255,0.8);
+    color: rgba(255,255,255,0.85);
     text-decoration: none;
-    border-bottom: 1px solid rgba(255,255,255,0.06);
-    transition: color 0.25s ease, padding-left 0.25s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    transition: color 0.2s ease, padding-left 0.2s ease;
+    line-height: 1;
 }
-.mobile-nav-links a:hover { color: #fff; padding-left: 8px; }
+.mobile-nav-links > li > a:hover,
+.mobile-nav-links > li > a.active {
+    color: #fff;
+    padding-left: 8px;
+}
 
-/* Mobile nav sub-categories */
+/* Sub-category section under Products */
 .mobile-nav-has-sub { list-style: none; }
 
 .mobile-nav-cat-head {
     display: block;
-    color: rgba(255,255,255,0.35);
-    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    font-size: 10px;
     font-weight: 700;
-    letter-spacing: 2.5px;
+    letter-spacing: 3px;
     text-transform: uppercase;
-    padding: 8px 0 6px;
-    margin-top: 8px;
+    padding: 14px 4px 8px;
 }
 
 .mobile-nav-sub {
     list-style: none;
     padding: 0;
-    margin: 0 0 8px;
+    margin: 0 0 4px;
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 4px;
 }
 
 .mobile-cat-link {
     display: block;
-    color: rgba(255,255,255,0.7) !important;
-    font-size: 15px !important;
+    color: rgba(255,255,255,0.65) !important;
+    font-size: 14px !important;
     font-weight: 500;
-    padding: 10px 14px;
-    border-radius: 12px;
-    background: rgba(255,255,255,0.04);
+    padding: 9px 12px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.05);
     text-decoration: none;
-    transition: background 0.2s ease, color 0.2s ease, transform 0.2s cubic-bezier(0.34,1.56,0.64,1);
-    letter-spacing: 0.2px;
+    transition: background 0.2s ease, color 0.2s ease, padding-left 0.2s ease;
+    letter-spacing: 0.3px;
+    border-bottom: none !important;
 }
-.mobile-cat-link:hover, .mobile-cat-link:active {
-    background: rgba(255,255,255,0.10);
+.mobile-cat-link:hover {
+    background: rgba(255,255,255,0.1);
     color: #fff !important;
-    transform: translateX(3px);
+    padding-left: 16px;
 }
 
-/* Bottom actions */
+/* ── BOTTOM ACTION BUTTONS ────────────────────────────────── */
+/* These hold Bulk Inquiry, Investor, and Shop Now */
 .mobile-nav-bottom-actions {
     display: flex;
     flex-direction: column;
     gap: 10px;
     margin-top: auto;
-    padding-top: 16px;
+    padding-top: 20px;
     border-top: 1px solid rgba(255,255,255,0.08);
+    /* push to bottom even if content is short */
+    flex-shrink: 0;
 }
 
 .mobile-bulk-btn {
     display: block;
     text-align: center;
     text-decoration: none;
-    color: rgba(255,255,255,0.75);
+    color: rgba(255,255,255,0.8);
+    font-family: 'Hanken Grotesk', sans-serif;
     font-size: 14px;
     font-weight: 600;
-    padding: 12px 24px;
-    border-radius: 50px;
-    border: 1px solid rgba(255,255,255,0.18);
-    background: rgba(255,255,255,0.06);
-    transition: background 0.3s ease, color 0.3s ease;
+    padding: 13px 24px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.07);
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
 }
 .mobile-bulk-btn:hover {
-    background: rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.14);
     color: #fff;
+    border-color: rgba(255,255,255,0.35);
+}
+
+.mobile-investor-btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: rgba(255,255,255,0.8);
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 13px 24px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.07);
+    transition: background 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+.mobile-investor-btn:hover {
+    background: rgba(255,255,255,0.14);
+    color: #fff;
+    border-color: rgba(255,255,255,0.35);
 }
 
 .mobile-shop-btn {
     display: block;
     text-align: center;
-    background: #fff;
-    color: #000;
+    text-decoration: none;
+    background: #ffffff;
+    color: #000000;
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
     padding: 14px 28px;
     border-radius: 999px;
-    font-weight: 700;
-    font-size: 14px;
-    text-decoration: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    letter-spacing: 0.3px;
 }
 .mobile-shop-btn:hover {
+    background: #f0f0f0;
     transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.3);
 }
 
+/* Overlay */
 .mobile-nav-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.6);
     z-index: 10000;
     opacity: 0;
     visibility: hidden;
@@ -562,91 +601,73 @@ body {
    RESPONSIVE BREAKPOINTS
    ============================================================ */
 
-/* Large screens — slightly reduce nav gap */
+/* 1300px — tighten nav padding */
 @media (max-width: 1300px) {
     .nav-container { padding: 0 40px; }
     .nav-links { gap: 24px; }
     .logo-img { height: 100px; }
 }
 
+/* 1100px — reduce radius, hide investor btn */
 @media (max-width: 1100px) {
-    :root { --radius: 340px; }
-    .product-item {
-        width: 300px;
-        height: 480px;
-        margin-top: -240px;
-    }
+    :root { --radius: 360px; }
+    .product-item { width: 320px; height: 520px; margin-top: -260px; }
     .nav-container { padding: 0 30px; }
     .nav-links { gap: 18px; }
     .logo-img { height: 90px; }
-    /* Hide investor button at mid-size to save space */
     .btn-investor { display: none; }
 }
 
+/* 992px — hide bulk btn */
 @media (max-width: 992px) {
-    :root { --radius: 280px; }
-    .product-item {
-        width: 260px;
-        height: 420px;
-        margin-top: -210px;
-    }
+    :root { --radius: 300px; }
+    .product-item { width: 280px; height: 460px; margin-top: -230px; }
     .nav-links { gap: 14px; }
     .btn-bulk { display: none; }
 }
 
-/* Tablet — switch to hamburger */
+/* 768px — hamburger mode, keep products reasonably sized */
 @media (max-width: 768px) {
     :root {
         --nav-height: 70px;
-        --radius: 220px;
+        /* Keep radius large enough for products to look good */
+        --radius: 280px;
     }
 
     .nav-container { padding: 0 20px; }
-
     .nav-links { display: none; }
     .nav-actions { display: none; }
     .nav-hamburger { display: flex; }
 
     .logo-img { height: 80px; }
 
-    .product-item {
-        width: 210px;
-        height: 340px;
-        margin-top: -170px;
-    }
-    .floating-img {
-        max-width: 110%;
-        max-height: 110%;
-    }
-    .category-indicator {
-        bottom: 20px;
-        padding: 6px 14px 6px 10px;
-    }
-    .ci-label { font-size: 9px; }
+    /* Products: keep tall enough to look impressive */
+    .product-item { width: 260px; height: 420px; margin-top: -210px; }
+    .floating-img { max-width: 120%; max-height: 120%; }
+
+    .category-indicator { bottom: 20px; padding: 7px 16px 7px 12px; }
+    .ci-label { font-size: 10px; }
 }
 
-/* Small mobile */
-@media (max-width: 640px) {
-    :root { --radius: 180px; }
-    .product-item {
-        width: 170px;
-        height: 280px;
-        margin-top: -140px;
-    }
-    .floating-img {
-        max-width: 100%;
-        max-height: 100%;
-    }
-    .logo-img { height: 65px; }
+/* 600px */
+@media (max-width: 600px) {
+    :root { --radius: 240px; }
+    .product-item { width: 220px; height: 360px; margin-top: -180px; }
+    .floating-img { max-width: 115%; max-height: 115%; }
+    .logo-img { height: 68px; }
 }
 
+/* 480px */
 @media (max-width: 480px) {
-    :root { --radius: 150px; }
-    .product-item {
-        width: 140px;
-        height: 230px;
-        margin-top: -115px;
-    }
-    .logo-img { height: 56px; }
+    :root { --radius: 200px; }
+    .product-item { width: 190px; height: 310px; margin-top: -155px; }
+    .floating-img { max-width: 110%; max-height: 110%; }
+    .logo-img { height: 60px; }
     .nav-container { padding: 0 16px; }
+}
+
+/* 380px — very small phones */
+@media (max-width: 380px) {
+    :root { --radius: 170px; }
+    .product-item { width: 160px; height: 260px; margin-top: -130px; }
 }

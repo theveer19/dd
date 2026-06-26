@@ -472,7 +472,7 @@ body {
 }
 
 .mobile-shop-btn {
-    margin-top: auto;
+    margin-top: 0;
     text-decoration: none;
     background: #1F1F1F;
     color: #fff;
@@ -486,6 +486,54 @@ body {
 .mobile-shop-btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+.mobile-investor-btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: rgba(30,30,30,0.75);
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 13px 24px;
+    border-radius: 999px;
+    border: 1px solid rgba(30,30,30,0.15);
+    background: rgba(30,30,30,0.04);
+    transition: background 0.25s ease, color 0.25s ease;
+}
+.mobile-investor-btn:hover {
+    background: rgba(30,30,30,0.08);
+    color: #1F1F1F;
+}
+
+.mobile-bulk-btn {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: rgba(30,30,30,0.75);
+    font-family: 'Hanken Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 13px 24px;
+    border-radius: 999px;
+    border: 1px solid rgba(30,30,30,0.15);
+    background: rgba(30,30,30,0.04);
+    transition: background 0.25s ease, color 0.25s ease;
+}
+.mobile-bulk-btn:hover {
+    background: rgba(30,30,30,0.08);
+    color: #1F1F1F;
+}
+
+.mobile-nav-bottom-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid rgba(30,30,30,0.08);
+    flex-shrink: 0;
 }
 
 .nav-hamburger {
