@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,8 +16,11 @@
     <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/bundled/lenis.min.js"></script>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
 
+    <!-- Desktop styles -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="premium.css">
+    <!-- Mobile overrides — loaded last so they win -->
+    <link rel="stylesheet" href="mobile.css">
 </head>
 <body>
 
@@ -66,11 +67,10 @@
                                 <svg class="cat-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6H9.5M6.5 3L9.5 6L6.5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                             </div>
                             <div class="dropdown-category" data-category="container">
-                                <div class="cat-icon-wrap"><span class="cat-emoji"></span></div>
+                                <div class="cat-icon-wrap"><span class="cat-emoji">🍱</span></div>
                                 <div class="cat-info"><span class="cat-name">Container</span><span class="cat-sub">4 products</span></div>
                                 <svg class="cat-arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 6H9.5M6.5 3L9.5 6L6.5 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                             </div>
-                            <!-- ✅ FIX: Kitchen category added -->
                             <div class="dropdown-category" data-category="Kitchen">
                                 <div class="cat-icon-wrap"><span class="cat-emoji">🍳</span></div>
                                 <div class="cat-info"><span class="cat-name">Kitchen</span><span class="cat-sub">4 products</span></div>
@@ -86,9 +86,7 @@
             <div class="nav-actions">
                 <a href="bulk.html" class="btn-bulk">Bulk Inquiry</a>
                 <a href="investor.html" class="btn-investor">Investor</a>
-                <a href="https://dimazo.in/" target="_blank" class="btn-primary shop-btn-link">
-                    Shop Now
-                </a>
+                <a href="https://dimazo.in/" target="_blank" class="btn-primary shop-btn-link">Shop Now</a>
             </div>
             <!-- Mobile hamburger -->
             <button class="nav-hamburger" id="navHamburger" aria-label="Open menu">
@@ -97,21 +95,13 @@
         </div>
     </nav>
 
-    <!-- Mobile nav drawer -->
-   <!-- ============================================================
-     MOBILE NAV DRAWER — paste this into index.html
-     Replace the existing <div class="mobile-nav-drawer"...> block
-     and the <div class="mobile-nav-overlay"...> with this.
-     ============================================================ -->
-
-    <!-- Mobile nav drawer -->
+    <!-- ── Mobile nav drawer ── -->
     <div class="mobile-nav-drawer" id="mobileNavDrawer">
         <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close menu">✕</button>
 
         <!-- Main nav links -->
         <ul class="mobile-nav-links">
             <li><a href="#" class="active">Home</a></li>
-
             <!-- Products with sub-categories -->
             <li class="mobile-nav-has-sub">
                 <span class="mobile-nav-cat-head">Products</span>
@@ -123,12 +113,11 @@
                     <li><a href="#" class="mobile-cat-link" data-category="Kitchen">🍳 Kitchen</a></li>
                 </ul>
             </li>
-
             <li><a href="#section03">Collection</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
 
-        <!-- Bottom action buttons: Bulk + Investor + Shop Now -->
+        <!-- Bottom action buttons -->
         <div class="mobile-nav-bottom-actions">
             <a href="bulk.html" class="mobile-bulk-btn">Bulk Inquiry</a>
             <a href="investor.html" class="mobile-investor-btn">Investor</a>
@@ -144,6 +133,7 @@
         <span class="ci-label" id="ciLabel">Water Bottle</span>
     </div>
 
+    <!-- Desktop orbit — hidden on mobile via CSS -->
     <div class="orbit-pivot" id="orbitPivot">
         <div class="orbit-wheel" id="orbitWheel"></div>
     </div>
@@ -235,6 +225,7 @@
         <p class="og-sub">Five icons. Infinite stories. Hover to explore.</p>
     </div>
 
+    <!-- Desktop orbit stage — hidden on mobile, replaced by JS carousel -->
     <div class="og-orbital-stage" id="ogStage">
         <div class="og-center-text">
             <span class="og-center-label">Dimazofly</span>
@@ -350,7 +341,10 @@
     </div>
 </footer>
 
+<!-- Desktop scripts -->
 <script src="script.js"></script>
 <script src="premium.js"></script>
+<!-- Mobile script — runs AFTER desktop scripts, self-guards with IS_MOBILE check -->
+<script src="mobile.js?v=5"></script>
 </body>
 </html>

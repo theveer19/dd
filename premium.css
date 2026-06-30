@@ -867,7 +867,7 @@
 
 /* ─── RESPONSIVE ────────────────────────────────────────────── */
 
-/* ── 992px — tablet ── */
+/* ── Tablet 992px: section02 stacks, orbit stays ── */
 @media (max-width: 992px) {
     .section-scroll-char {
         flex-direction: column;
@@ -877,63 +877,30 @@
         gap: 0;
     }
     .char-text-panel { max-width: 100%; flex: none; order: 2; }
-    .char-stage { flex: none; width: 100%; height: clamp(300px, 50vw, 500px); order: 1; }
+    .char-stage { flex: none; width: 100%; height: clamp(320px, 52vw, 520px); order: 1; }
     .char-body { max-width: 100%; }
     .char-stats { justify-content: center; }
     .char-cta { display: flex; justify-content: center; }
     .float-tag { display: none; }
-
-    /* Section 03 — large stage, big items */
-    .og-orbital-stage { width: 720px; height: 720px; }
-    .og-orbit-item { width: 200px; height: 260px; margin-left: -100px; margin-top: -130px; }
+    /* Orbit still desktop-style on tablet */
+    .og-orbital-stage { width: 740px; height: 740px; }
+    .og-orbit-item { width: 210px; height: 270px; margin-left: -105px; margin-top: -135px; }
 }
 
-/* ── 768px — mobile ── */
+/* ── Mobile 768px: mobile_style.css owns the heavy lifting.
+   Only set things here that mobile_style.css doesn't cover. ── */
 @media (max-width: 768px) {
-    .section-scroll-char { padding: 60px 5vw 50px; }
-    .char-stage { height: clamp(240px, 60vw, 380px); }
-    .char-png { max-height: clamp(220px, 55vw, 360px); max-width: 92%; }
-
-    /* Section 03 — fill screen width, big items */
-    .section-orbit-gallery { padding: 60px 0 50px; overflow: hidden; }
-    .og-orbital-stage {
-        width: 96vw;
-        height: 96vw;
-        max-width: 520px;
-        max-height: 520px;
-    }
-    .og-orbit-item { width: 180px; height: 230px; margin-left: -90px; margin-top: -115px; }
-    .og-img { filter: drop-shadow(0 20px 40px rgba(217,184,168,0.3)); }
-    .og-center-label { font-size: 22px; }
-
-    .fc-brand-text, .fc-brand-t { font-size: clamp(3rem, 12vw, 5rem); }
-    .fc-links-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-    .fc-inner { padding: 0 24px 48px; }
-    .fc-bottom-strip { flex-direction: column; gap: 12px; text-align: center; }
+    /* Section 03 desktop orbit — hidden by mobile_style.css,
+       but keep footer in shape */
+    .fc-brand-text, .fc-brand-t { font-size: clamp(3rem, 14vw, 5rem); }
+    .fc-links-grid { grid-template-columns: 1fr 1fr; gap: 28px; }
+    .fc-inner { padding: 0 20px 40px; }
+    .fc-bottom-strip { flex-direction: column; gap: 10px; text-align: center; }
     .fc-newsletter { max-width: 100%; }
-}
 
-/* ── 540px — small phones ── */
-@media (max-width: 540px) {
-    .og-orbital-stage {
-        width: 96vw;
-        height: 96vw;
-        max-width: 420px;
-        max-height: 420px;
+    /* Section 02 char parallax — mobile_script.js resets GSAP values,
+       but ensure the section itself doesn't clip */
+    .section-scroll-char {
+        overflow: hidden;
     }
-    .og-orbit-item { width: 150px; height: 195px; margin-left: -75px; margin-top: -97px; }
-    .og-header { margin-bottom: 24px; }
-    .fc-links-grid { grid-template-columns: 1fr; gap: 28px; }
-}
-
-/* ── 400px — very small ── */
-@media (max-width: 400px) {
-    .og-orbital-stage {
-        width: 96vw;
-        height: 96vw;
-        max-width: 360px;
-        max-height: 360px;
-    }
-    .og-orbit-item { width: 125px; height: 160px; margin-left: -62px; margin-top: -80px; }
-    .fc-inner { padding: 0 16px 36px; }
 }
