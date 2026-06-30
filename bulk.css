@@ -68,6 +68,7 @@
     right: -100%;
     width: min(320px, 85vw);
     height: 100vh;
+    height: 100dvh;
     background: rgba(249,236,226,0.97);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
@@ -78,6 +79,8 @@
     gap: 0;
     transition: right 0.4s cubic-bezier(0.22,1,0.36,1);
     box-shadow: -8px 0 40px rgba(0,0,0,0.12);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
 }
 .mobile-nav-drawer.open { right: 0; }
 

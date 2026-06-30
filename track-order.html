@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Track Order — Dimazofly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Syne:wght@700;800;900&family=Cormorant+Garamond:ital,wght@0,600;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pages.css">
+</head>
+<body>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<nav class="navbar" id="mainNav">
+    <a href="index.html" class="nav-logo"><img src="logo.png" alt="Dimazofly" class="nav-logo-img"></a>
+    <ul class="nav-links-row">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="story.html">Our Story</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="investor.html">Investor</a></li>
+    </ul>
+    <a href="https://dimazo.in/" target="_blank" rel="noopener noreferrer" class="nav-shop">Shop Now</a>
+    <button class="nav-hamburger" id="navHam" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav-drawer" id="mobileDrawer">
+    <button class="mobile-nav-close" id="mobileClose">✕</button>
+    <ul class="mobile-nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="story.html">Our Story</a></li>
+        <li><a href="sustainability.html">Sustainability</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="help.html">Help Center</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="investor.html">Investor</a></li>
+        <li><a href="bulk.html">Bulk Inquiry</a></li>
+    </ul>
+    <a href="https://dimazo.in/" target="_blank" class="mobile-shop-btn">Shop Now</a>
+</div>
+<div class="mobile-nav-overlay" id="mobileOverlay"></div>
+<main class="page">
+    <div class="page-hero reveal">
+        <div class="page-eyebrow">Track Order</div>
+        <h1>Where's my<br><em>order?</em></h1>
+        <p>Enter your order ID below to see the latest status. You'll find your order ID in your confirmation message.</p>
+    </div>
+    <div class="form-card reveal">
+        <div class="form-grid">
+            <div class="form-field full">
+                <label for="track-id">Order ID</label>
+                <input class="form-input" type="text" id="track-id" placeholder="e.g. DMZ-10245">
+            </div>
+        </div>
+        <button class="btn-submit" onclick="trackOrder()">Track Order
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+
+        <div class="track-result" id="trackResult">
+            <div class="section-title" style="font-size:20px;margin-top:8px">Order <em id="trackOrderId">—</em></div>
+            <div class="track-steps">
+                <div class="track-step done"><div class="ts-dot">✓</div><div class="ts-info"><h4>Order Confirmed</h4><p>We've received your order.</p></div></div>
+                <div class="track-step done"><div class="ts-dot">✓</div><div class="ts-info"><h4>Packed</h4><p>Your items are packed and ready.</p></div></div>
+                <div class="track-step active"><div class="ts-dot">→</div><div class="ts-info"><h4>Shipped</h4><p>On the way to your address.</p></div></div>
+                <div class="track-step"><div class="ts-dot"></div><div class="ts-info"><h4>Out for Delivery</h4><p>Arriving soon.</p></div></div>
+                <div class="track-step"><div class="ts-dot"></div><div class="ts-info"><h4>Delivered</h4><p>Enjoy your Dimazofly products!</p></div></div>
+            </div>
+            <p style="margin-top:22px;font-size:13px;color:var(--muted)">This is a status preview. For exact, real-time tracking, message us on WhatsApp with your order ID and we'll share live details.</p>
+        </div>
+    </div>
+    <div class="cta-band reveal">
+        <div><h2>Need <em>live</em> tracking?</h2><p>Message us your order ID for the latest update.</p></div>
+        <a href="https://wa.me/917000418227" target="_blank" rel="noopener noreferrer" class="btn-dark">WhatsApp Us</a>
+    </div>
+</main>
+<div class="footer-strip">
+    © 2025 Dimazofly Kitchen Appliances Pvt. Ltd. · Rajkot, Gujarat, India ·
+    <a href="contact.html">Contact</a> · <a href="https://dimazo.in/" target="_blank">dimazo.in</a>
+</div>
+<div class="toast" id="toast"></div>
+<script src="pages.js"></script>
+</body></html>

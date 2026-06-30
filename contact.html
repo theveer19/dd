@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Dimazofly</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=Syne:wght@700;800;900&family=Cormorant+Garamond:ital,wght@0,600;1,400;1,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="pages.css">
+</head>
+<body>
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<nav class="navbar" id="mainNav">
+    <a href="index.html" class="nav-logo"><img src="logo.png" alt="Dimazofly" class="nav-logo-img"></a>
+    <ul class="nav-links-row">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="story.html">Our Story</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="investor.html">Investor</a></li>
+    </ul>
+    <a href="https://dimazo.in/" target="_blank" rel="noopener noreferrer" class="nav-shop">Shop Now</a>
+    <button class="nav-hamburger" id="navHam" aria-label="Open menu"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav-drawer" id="mobileDrawer">
+    <button class="mobile-nav-close" id="mobileClose">✕</button>
+    <ul class="mobile-nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="story.html">Our Story</a></li>
+        <li><a href="sustainability.html">Sustainability</a></li>
+        <li><a href="careers.html">Careers</a></li>
+        <li><a href="help.html">Help Center</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="investor.html">Investor</a></li>
+        <li><a href="bulk.html">Bulk Inquiry</a></li>
+    </ul>
+    <a href="https://dimazo.in/" target="_blank" class="mobile-shop-btn">Shop Now</a>
+</div>
+<div class="mobile-nav-overlay" id="mobileOverlay"></div>
+<main class="page">
+    <div class="page-hero reveal">
+        <div class="page-eyebrow">Contact</div>
+        <h1>Let's <em>talk.</em></h1>
+        <p>Questions, bulk orders, partnerships, or support — we're here to help. Send us a message and we'll get back to you on WhatsApp.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:start" class="contact-layout">
+        <div class="form-card reveal">
+            <div class="form-grid">
+                <div class="form-field"><label for="c-name">Full Name *</label><input class="form-input" id="c-name" type="text" placeholder="Your name"></div>
+                <div class="form-field"><label for="c-email">Email</label><input class="form-input" id="c-email" type="email" placeholder="you@email.com"></div>
+                <div class="form-field full"><label for="c-subject">Subject</label><input class="form-input" id="c-subject" type="text" placeholder="What's this about?"></div>
+                <div class="form-field full"><label for="c-msg">Message *</label><textarea class="form-textarea" id="c-msg" placeholder="How can we help?"></textarea></div>
+            </div>
+            <button class="btn-submit" onclick="sendContact()">Send on WhatsApp
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+        </div>
+        <div class="reveal">
+            <div class="contact-list">
+                <div class="contact-row"><div class="contact-ic">📞</div><a href="tel:+917000418227">+91 70004 18227</a></div>
+                <div class="contact-row"><div class="contact-ic">💬</div><a href="https://wa.me/917000418227" target="_blank" rel="noopener noreferrer">WhatsApp Chat</a></div>
+                <div class="contact-row"><div class="contact-ic">✉️</div><a href="mailto:support@dimazofly.in">support@dimazofly.in</a></div>
+                <div class="contact-row"><div class="contact-ic">🌐</div><a href="https://dimazo.in/" target="_blank" rel="noopener noreferrer">dimazo.in</a></div>
+                <div class="contact-row"><div class="contact-ic">📍</div><span>Rajkot, Gujarat, India</span></div>
+            </div>
+            <div style="margin-top:22px;padding:22px 24px;background:var(--card);border:1px solid var(--border);border-radius:20px">
+                <div style="font-family:'Syne',sans-serif;font-weight:800;margin-bottom:8px">Business Hours</div>
+                <p style="font-size:14px;color:var(--soft);line-height:1.8">Mon – Sat: 10:00 AM – 7:00 PM<br>Sunday: Closed<br><span style="color:var(--muted)">WhatsApp support 24/7</span></p>
+            </div>
+        </div>
+    </div>
+</main>
+<style>@media(max-width:768px){.contact-layout{grid-template-columns:1fr !important}}</style>
+<div class="footer-strip">
+    © 2025 Dimazofly Kitchen Appliances Pvt. Ltd. · Rajkot, Gujarat, India ·
+    <a href="contact.html">Contact</a> · <a href="https://dimazo.in/" target="_blank">dimazo.in</a>
+</div>
+<div class="toast" id="toast"></div>
+<script src="pages.js"></script>
+</body></html>
